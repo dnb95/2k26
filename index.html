@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="system">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="description" content="Révisions niveau BUT : management, gestion, négociation, quiz corrigés et ressources vidéo.">
+    <title>DnB — Management, Gestion & Négociation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="login-screen">
+    <div class="login-box">
+        <h1>DnB</h1>
+        <p>Marketing · Management · Gestion · Négociation</p>
+        <input type="password" id="password-input" placeholder="Mot de passe" autocomplete="off" onkeydown="if(event.key==='Enter')checkPassword()">
+        <button onclick="checkPassword()">Entrer</button>
+        <div id="error-msg">Mot de passe incorrect.</div>
+    </div>
+</div>
+
+<div id="app-screen">
+    <header class="app-header">
+        <h1>DnB</h1>
+        <div class="header-actions">
+            <span class="progress-badge" id="global-progress">0 / 0</span>
+            <button class="logout-btn" onclick="logout()">Déconnexion</button>
+            <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-overlay" id="menu-overlay" onclick="toggleMobileMenu()"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <button class="menu-btn active" onclick="openTab('toutes-notions', this)"><span class="menu-icon">📖</span> Notions</button>
+        <button class="menu-btn" onclick="openTab('marketing', this)"><span class="menu-icon">📈</span> Marketing</button>
+        <button class="menu-btn" onclick="openTab('management', this)"><span class="menu-icon">🧠</span> Management</button>
+        <button class="menu-btn" onclick="openTab('gestion', this)"><span class="menu-icon">📊</span> Gestion</button>
+        <button class="menu-btn" onclick="openTab('negociation', this)"><span class="menu-icon">🤝</span> Négociation</button>
+        <button class="menu-btn" onclick="openTab('quiz', this)"><span class="menu-icon">📝</span> Quiz</button>
+        <button class="menu-btn" onclick="openTab('progression', this)"><span class="menu-icon">📊</span> Progression</button>
+        <button class="menu-btn" onclick="openTab('resultats', this)"><span class="menu-icon">📋</span> Résultats</button>
+        <button class="menu-btn" onclick="openTab('parametres', this)"><span class="menu-icon">⚙️</span> Réglages</button>
+    </nav>
+
+    <nav class="tab-bar-desktop">
+        <button class="tab-btn active" onclick="openTab('toutes-notions', this)" data-tab="toutes-notions">📖 Notions</button>
+        <button class="tab-btn" onclick="openTab('marketing', this)" data-tab="marketing">📈 Marketing</button>
+        <button class="tab-btn" onclick="openTab('management', this)" data-tab="management">🧠 Management</button>
+        <button class="tab-btn" onclick="openTab('gestion', this)" data-tab="gestion">📊 Gestion</button>
+        <button class="tab-btn" onclick="openTab('negociation', this)" data-tab="negociation">🤝 Négociation</button>
+        <button class="tab-btn" onclick="openTab('quiz', this)" data-tab="quiz">📝 Quiz</button>
+        <button class="tab-btn" onclick="openTab('progression', this)" data-tab="progression">📊 Progression</button>
+        <button class="tab-btn" onclick="openTab('resultats', this)" data-tab="resultats">📋 Résultats</button>
+        <button class="tab-btn" onclick="openTab('parametres', this)" data-tab="parametres">⚙️ Réglages</button>
+    </nav>
+
+    <!-- ONGLET : NOTIONS -->
+    <div id="toutes-notions" class="content-section active">
+        <section class="glass hero-panel">
+            <div class="hero-kicker">DnB · Parcours BUT</div>
+            <h2>Comprendre. Pratiquer. Progresser.</h2>
+            <p>Une base de révision claire et concrète en management, gestion et négociation : notions essentielles, quiz corrigés et ressources vidéo. Priorité aux fondamentaux attendus en BUT.</p>
+            <div class="hero-stats"><div class="hero-stat"><strong id="stat-notions">—</strong><span>notions à réviser</span></div><div class="hero-stat"><strong id="stat-questions">—</strong><span>questions disponibles</span></div><div class="hero-stat"><strong id="stat-categories">4</strong><span>domaines de travail</span></div></div>
+        </section>
+        <h2 class="section-title">🎬 Bibliothèque vidéo</h2>
+        <div class="video-library video-library-embeds">
+          <article class="glass video-card"><div class="video-icon">🤝</div><h3>Négociation — William Ury (TED)</h3><p>Une référence pour sortir du blocage, comprendre les intérêts derrière les positions et construire un accord durable.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/Hc6yi_FtoNo" title="William Ury — The Walk from No to Yes — TED" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><small>TED · Anglais, sous-titres disponibles</small><a class="video-link" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=Hc6yi_FtoNo">Ouvrir sur YouTube ↗</a></article>
+          <article class="glass video-card"><div class="video-icon">🧠</div><h3>Management — styles de management</h3><p>Comprendre les styles directif, persuasif, participatif et délégatif, et savoir les adapter à une équipe.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/FxgV5NbCvVM" title="Les styles de management — Cyril Gaillard" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><small>Français · Management d’équipe</small><a class="video-link" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=FxgV5NbCvVM">Ouvrir sur YouTube ↗</a></article>
+          <article class="glass video-card"><div class="video-icon">📊</div><h3>Gestion — seuil de rentabilité</h3><p>Définition, calcul et application du seuil de rentabilité en comptabilité de gestion.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/jFOQMtz1m6I" title="Seuil de rentabilité — cours comptabilité finance" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><small>Français · Comptabilité et finance</small><a class="video-link" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=jFOQMtz1m6I">Ouvrir sur YouTube ↗</a></article>
+          <article class="glass video-card"><div class="video-icon">🧭</div><h3>Marketing — nudge et biais cognitifs</h3><p>FNEGE Médias explique le nudge marketing, les biais cognitifs et les questions éthiques liées à l’influence.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/cTwRlgpsfwU" title="Qu'est-ce que le Nudge marketing ? — FNEGE Médias" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><small>FNEGE Médias · Français</small><a class="video-link" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=cTwRlgpsfwU">Ouvrir sur YouTube ↗</a></article>
+          <article class="glass video-card"><div class="video-icon">🎯</div><h3>Négociation — accords durables</h3><p>William Ury présente les stratégies issues du Harvard Negotiation Project pour créer des accords durables en entreprise et dans les conflits.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/e1NHqPDzqoU" title="William Ury — Negotiating for Sustainable Agreements — UCTV" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><small>UCTV · Anglais</small><a class="video-link" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=e1NHqPDzqoU">Ouvrir sur YouTube ↗</a></article>
+        </div>
+        <h2 class="section-title" style="margin-top:26px">📖 Toutes les notions</h2>
+        <div class="search-bar">
+            <input type="text" id="notions-search" placeholder="Rechercher un terme, un acronyme..." oninput="renderNotions()">
+            <select id="notions-category-filter" onchange="renderNotions()">
+                <option value="all">Toutes catégories</option>
+            </select>
+        </div>
+        <div id="notions-list"></div>
+    </div>
+
+    <!-- ONGLET : MARKETING -->
+    <div id="marketing" class="content-section">
+        <h2 class="section-title">📈 Marketing</h2>
+        <div class="grid">
+            <div class="glass glass-card"><h3>Les 4P (Mix Marketing)</h3><p>Produit, Prix, Place (distribution), Promotion (communication).</p></div>
+            <div class="glass glass-card"><h3>SWOT & PESTEL</h3><p>SWOT : Forces/Faiblesses (interne), Opportunités/Menaces (externe). PESTEL : Politique, Économique, Socioculturel, Technologique, Environnemental, Légal.</p></div>
+            <div class="glass glass-card">
+                <h3>Vidéo : Nudge marketing</h3>
+                <p class="video-desc">Un spécialiste de la Nudge Unit explique l’incitation comportementale et ses enjeux éthiques.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/cTwRlgpsfwU" title="Qu'est-ce que le Nudge marketing ? — FNEGE Médias" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ONGLET : MANAGEMENT -->
+    <div id="management" class="content-section">
+        <h2 class="section-title">🧠 Management</h2>
+        <div class="grid">
+            <div class="glass glass-card"><h3>Parties prenantes & RSE</h3><p>Individus affectés par les décisions de l'entreprise. La RSE intègre les préoccupations sociales et environnementales.</p></div>
+            <div class="glass glass-card"><h3>Lean & Kaizen</h3><p>Le Lean traque les gaspillages. Le Kaizen est l'amélioration continue par petits pas.</p></div>
+            <div class="glass glass-card">
+                <h3>Vidéo : Stratégie et gouvernance</h3>
+                <p class="video-desc">Une ressource universitaire pour approfondir la stratégie et la gouvernance d’entreprise.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/LByH1NL02FI" title="Management stratégique et gouvernance d'entreprise" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ONGLET : GESTION -->
+    <div id="gestion" class="content-section">
+        <h2 class="section-title">📊 Gestion</h2>
+        <div class="grid">
+            <div class="glass glass-card"><h3>Seuil de rentabilité</h3><p>Niveau de CA où l'entreprise ne gagne ni ne perd. SR = Charges fixes / Taux de MCV.</p></div>
+            <div class="glass glass-card"><h3>VAN & TRI</h3><p>VAN > 0 : projet rentable. TRI : taux qui annule la VAN.</p></div>
+            <div class="glass glass-card">
+                <h3>Vidéo : Comptabilité et finance</h3>
+                <p class="video-desc">Bilan, compte de résultat, trésorerie, coûts et seuil de rentabilité.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/XpNL9-G5sgQ" title="5 Minutes Pour Réussir — gestion, comptabilité et finance" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ONGLET : NÉGOCIATION -->
+    <div id="negociation" class="content-section">
+        <h2 class="section-title">🤝 Négociation & Psycho</h2>
+        <div class="grid">
+            <div class="glass glass-card"><h3>Mirroring & Labeling</h3><p>Répéter les derniers mots (miroir). Nommer l'émotion perçue (étiquetage). Techniques de Chris Voss.</p></div>
+            <div class="glass glass-card"><h3>MESORE / BATNA</h3><p>Meilleure solution de rechange si aucun accord. Plus elle est forte, plus tu as de pouvoir.</p></div>
+            <div class="glass glass-card">
+                <h3>Vidéo : William Ury — de « non » à « oui »</h3>
+                <p class="video-desc">Le spécialiste associé au Harvard Negotiation Project explique comment créer un accord dans les conflits difficiles.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/Hc6yi_FtoNo" title="William Ury — The Walk from No to Yes — TED" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                <p class="video-desc">Complément : conférence longue de William Ury sur les accords durables.</p><div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/e1NHqPDzqoU" title="William Ury — Negotiating for Sustainable Agreements — UCTV" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ONGLET : QUIZ -->
+    <div id="quiz" class="content-section">
+        <h2 class="section-title">📝 Quiz</h2>
+        <div class="quiz-controls">
+            <input type="text" id="quiz-search" placeholder="Rechercher un thème..." oninput="startQuiz()" class="btn-secondary" style="flex:1; min-width:180px; padding:13px 16px; border-radius:var(--radius-md); font-family:var(--font-system);">
+            <select id="quiz-category-filter" onchange="startQuiz()" class="btn-secondary" style="padding:13px 16px; border-radius:var(--radius-md); font-family:var(--font-system); cursor:pointer;">
+                <option value="all">Toutes catégories</option>
+            </select>
+            <button class="btn btn-primary" onclick="startQuiz()">Lancer</button>
+        </div>
+        <div class="quiz-container" id="quiz-container"></div>
+    </div>
+
+    <!-- ONGLET : PROGRESSION -->
+    <div id="progression" class="content-section">
+        <h2 class="section-title">📊 Progression</h2>
+        <div class="progress-list" id="progress-list"></div>
+    </div>
+
+    <!-- ONGLET : RÉSULTATS -->
+    <div id="resultats" class="content-section">
+        <h2 class="section-title">📋 Résultats détaillés</h2>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px;">Les 50 dernières réponses enregistrées.</p>
+        <div class="quiz-results-list" id="quiz-results-list"></div>
+    </div>
+
+    <!-- ONGLET : PARAMÈTRES -->
+    <div id="parametres" class="content-section">
+        <h2 class="section-title">⚙️ Réglages</h2>
+        <div class="glass glass-card settings-group">
+            <h3>Apparence</h3>
+            <div class="setting-row">
+                <label>Thème</label>
+                <div class="theme-options" id="theme-options">
+                    <button data-theme-value="light" onclick="setTheme('light')">Clair</button>
+                    <button data-theme-value="dark" onclick="setTheme('dark')">Sombre</button>
+                    <button data-theme-value="system" onclick="setTheme('system')">Système</button>
+                </div>
+            </div>
+        </div>
+        <div class="glass glass-card settings-group">
+            <h3>Données</h3>
+            <div class="setting-row">
+                <label>Réinitialiser la progression</label>
+                <button class="danger-btn" onclick="resetProgress()">Effacer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js" defer></script>
+</body>
+</html>
